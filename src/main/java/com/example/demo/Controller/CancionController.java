@@ -31,11 +31,16 @@ public class CancionController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/findByCancionNombre")
-    public ResponseEntity<List<Cancion>> findByCancionNombre(
-            @RequestParam String nombreCancion,
-            @RequestParam String genero) {
-        List<Cancion> cancions = cancionService.findByNombreCancion(nombreCancion, genero);
+    @GetMapping("/findByNombreCancion")
+    public ResponseEntity<List<Cancion>> findByNombreCancion(
+            @RequestParam String nombreCancion) {
+        List<Cancion> cancions = cancionService.findByNombreCancion(nombreCancion);
+        return new ResponseEntity<>(cancions, HttpStatus.OK);
+    }
+
+    @GetMapping("/findByGeneroCancion")
+    public ResponseEntity<List<Cancion>> findByGeneroCancion(@RequestParam String generoCancion){
+        List<Cancion> cancions = cancionService.findByGeneroCancion(generoCancion);
         return new ResponseEntity<>(cancions, HttpStatus.OK);
     }
 

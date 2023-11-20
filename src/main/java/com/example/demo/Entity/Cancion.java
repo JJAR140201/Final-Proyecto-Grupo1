@@ -13,8 +13,8 @@ public class Cancion extends Audit{
     @Column(name = "nombreCancion")
     private String nombreCancion;
 
-    @Column(name = "genero")
-    private String genero;
+    @Column(name = "generoCancion")
+    private String generoCancion;
 
     public Long getId() {
         return id;
@@ -30,14 +30,6 @@ public class Cancion extends Audit{
 
     public void setNombreCancion(String nombreCancion) {
         this.nombreCancion = nombreCancion;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 
     public Artista getArtista() {
@@ -56,13 +48,21 @@ public class Cancion extends Audit{
         this.respuestas = respuestas;
     }
 
+    public String getGeneroCancion() {
+        return generoCancion;
+    }
+
+    public void setGeneroCancion(String generoCancion) {
+        this.generoCancion = generoCancion;
+    }
+
     public Cancion() {
     }
 
-    public Cancion(Long id, String nombreCancion, String genero, Artista artista, List<Respuesta> respuestas) {
+    public Cancion(Long id, String nombreCancion, String generoCancion, Artista artista, List<Respuesta> respuestas) {
         this.id = id;
         this.nombreCancion = nombreCancion;
-        this.genero = genero;
+        this.generoCancion = generoCancion;
         this.artista = artista;
         this.respuestas = respuestas;
     }

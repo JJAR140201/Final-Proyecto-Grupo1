@@ -16,8 +16,13 @@ public class CancionService extends BaseService<Cancion> implements ICancionServ
     private ICancionRepository repository;
 
     @Override
-    public List<Cancion> findByNombreCancion(String nombreCancion, String genero) {
-        return repository.findByNombreCancion(nombreCancion, genero);
+    public List<Cancion> findByNombreCancion(String nombreCancion) {
+        return repository.findByNombreCancion(nombreCancion);
+    }
+
+    @Override
+    public  List<Cancion> findByGeneroCancion(String generoCancion){
+        return repository.findByGeneroCancion(generoCancion);
     }
 
     @Override

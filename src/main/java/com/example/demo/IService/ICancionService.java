@@ -7,5 +7,6 @@ import com.example.demo.Entity.Cancion;
 import java.util.List;
 
 public interface ICancionService extends IBaseService<Cancion>{
-    List<Cancion> findByNombreCancion(String nombreCancion, String genero);
+    List<Cancion> findByNombreCancion(String nombreCancion);
+    List<Cancion> findByGeneroCancion(String genero);
 }

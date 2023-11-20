@@ -9,7 +9,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ICancionRepository extends IBaseRepository<Cancion, Long> {
-    // Consulta para obtener artistas por nombre de canción
-    @Query("SELECT c FROM Cancion c WHERE c.nombre = :nombreCancion AND c.genero = :genero")
-    List<Cancion> findByNombreCancion(@Param("nombreCancion") String nombreCancion, @Param("genero") String genero);
+    // Consulta para buscar por nombreCancion
+    @Query("SELECT c FROM Cancion c WHERE c.nombre = :nombreCancion")
+    List<Cancion> findByNombreCancion(@Param("nombreCancion") String nombreCancion);
+
+    // Consulta para buscar por generoCancion
+    @Query("SELECT c FROM Cancion c WHERE c.genero = :generoCancion")
+    List<Cancion> findByGeneroCancion(@Param("generoCancion") String generoCancion);
+
 }
