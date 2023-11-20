@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IBaseRepository<T extends Audit, ID> extends JpaRepository<T, ID> {
-    Boleta findByNumeroUnico();
 }
