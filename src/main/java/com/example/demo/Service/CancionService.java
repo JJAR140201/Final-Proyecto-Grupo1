@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Entity.Artista;
 import com.example.demo.Entity.Cancion;
 import com.example.demo.IRepository.IBaseRepository;
 import com.example.demo.IRepository.ICancionRepository;
@@ -13,9 +14,10 @@ import java.util.List;
 public class CancionService extends BaseService<Cancion> implements ICancionService {
     @Autowired
     private ICancionRepository repository;
+
     @Override
-    public List<Cancion> findByArtistaNombre() {
-        return repository.findByArtistaNombre();
+    public List<Cancion> findByCancionNombre(String nombreCancion, String genero) {
+        return repository.findByCancionNombre(nombreCancion, genero);
     }
 
     @Override

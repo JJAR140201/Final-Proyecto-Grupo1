@@ -2,6 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.Entity.Artista;
 import com.example.demo.Entity.Boleta;
+import com.example.demo.Entity.Cancion;
 import com.example.demo.IRepository.IArtistaRepository;
 import com.example.demo.IRepository.IBaseRepository;
 import com.example.demo.IService.IArtistaService;
@@ -17,13 +18,13 @@ public class ArtistaService extends BaseService<Artista> implements IArtistaServ
     private IArtistaRepository repository;
 
     @Override
-    public List<Artista> findByCancionNombre(String nombreCancion, String genero) {
-        return repository.findByCancionNombre(nombreCancion, genero);
+    public Optional<Artista> findById(Long id) {
+        return repository.findById(id);
     }
 
     @Override
-    public Optional<Artista> findById(Long id) {
-        return repository.findById(id);
+    public List<Cancion> findByArtistaNombre() {
+        return repository.findByArtistaNombre();
     }
 
     @Override
