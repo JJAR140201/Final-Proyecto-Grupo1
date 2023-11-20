@@ -35,7 +35,7 @@ public class CancionController {
     public ResponseEntity<List<Cancion>> findByCancionNombre(
             @RequestParam String nombreCancion,
             @RequestParam String genero) {
-        List<Cancion> cancions = cancionService.findByCancionNombre(nombreCancion, genero);
+        List<Cancion> cancions = cancionService.findByNombreCancion(nombreCancion, genero);
         return new ResponseEntity<>(cancions, HttpStatus.OK);
     }
 
