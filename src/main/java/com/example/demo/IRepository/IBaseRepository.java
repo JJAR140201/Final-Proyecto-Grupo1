@@ -9,5 +9,4 @@ import java.util.List;
 
 @Repository
 public interface IBaseRepository<T extends Audit, ID> extends JpaRepository<T, ID> {
-    List<Boleta> findByNumeroUnico(String numeroUnico);
 }

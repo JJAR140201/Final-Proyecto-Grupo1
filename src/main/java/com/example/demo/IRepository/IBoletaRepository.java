@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface IBoletaRepository extends IBaseRepository<Boleta, Long> {
-    @Query("SELECT b FROM Boleta b WHERE b.numeroUnico = :numeroUnico")
-    List<Boleta> findByNumeroUnico(@Param("numeroUnico") String numeroUnico);
+
+    Boleta findByNumeroUnico(String numeroUnico);
 
     @Query("SELECT a FROM Artista a WHERE a.id = :id")
     Optional<Boleta> findById(@Param("id") Long id);
