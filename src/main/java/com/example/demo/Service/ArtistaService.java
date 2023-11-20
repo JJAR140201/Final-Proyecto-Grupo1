@@ -23,8 +23,8 @@ public class ArtistaService extends BaseService<Artista> implements IArtistaServ
     }
 
     @Override
-    public List<Artista> findByArtistaNombre(String nombreArtista) {
-        return repository.findByArtistaNombre(nombreArtista);
+    public List<Artista> findByNombreArtista(String nombreArtista) {
+        return repository.findByNombreArtista(nombreArtista);
     }
 
     @Override

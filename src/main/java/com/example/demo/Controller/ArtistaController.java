@@ -34,7 +34,7 @@ public class ArtistaController {
 
     @GetMapping("/getCancionesByArtistaNombre")
     public ResponseEntity<List<Artista>> getCancionesByArtistaNombre(String nombreArtista) {
-        List<Artista> artistas = artistaService.findByArtistaNombre(nombreArtista);
+        List<Artista> artistas = artistaService.findByNombreArtista(nombreArtista);
         return new ResponseEntity<>(artistas, HttpStatus.OK);
     }
 
