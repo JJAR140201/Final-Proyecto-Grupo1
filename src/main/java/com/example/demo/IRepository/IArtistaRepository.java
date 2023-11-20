@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface IArtistaRepository extends IBaseRepository<Artista, Long> {
     // Consulta para obtener artistas por nombre de canción
-    @Query("SELECT DISTINCT a FROM Artista a INNER JOIN a.canciones c WHERE c.nombre = :nombreCancion")
+    @Query("SELECT DISTINCT a FROM Artista a INNER JOIN a.canciones c WHERE c.nombre = :nombreCancion AND c.genero = :genero")
     List<Artista> findByCancionNombre(@Param("nombreCancion") String nombreCancion, @Param("genero") String genero);
 
     // Consulta para obtener un artista por ID
