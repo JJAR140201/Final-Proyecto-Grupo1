@@ -14,8 +14,8 @@ public class ParticipanteService extends BaseService<Participante> implements IP
     @Autowired
     private IParticipanteRepository repository;
     @Override
-    public List<Participante> findByBoletaColorUnico() {
-        return repository.findByBoletaColorUnico();
+    public List<Participante> findByNombreCompleto(String nombreCompleto) {
+        return repository.findByNombreCompleto(nombreCompleto);
     }
 
     @Override

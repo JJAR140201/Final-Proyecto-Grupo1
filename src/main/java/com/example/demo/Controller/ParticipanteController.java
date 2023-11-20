@@ -28,9 +28,9 @@ public class ParticipanteController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/buscarPorBoletaColorUnico")
-    public ResponseEntity<List<Participante>> getParticipantesByBoletaColorUnico() {
-        List<Participante> participantes = participanteService.findByBoletaColorUnico();
+    @GetMapping("/findByNombreCompleto")
+    public ResponseEntity<List<Participante>> findByNombreCompleto(String nombreCompleto) {
+        List<Participante> participantes = participanteService.findByNombreCompleto(nombreCompleto);
         return new ResponseEntity<>(participantes, HttpStatus.OK);
     }
 

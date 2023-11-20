@@ -5,5 +5,6 @@ import com.example.demo.Entity.Participante;
 import java.util.List;
 
 public interface IParticipanteService extends IBaseService<Participante>{
-    List<Participante> findByBoletaColorUnico();
+
+    List<Participante> findByNombreCompleto(String nombreCompleto);
 }
