@@ -1,6 +1,5 @@
 package com.example.demo.IRepository;
 
-import com.example.demo.Entity.Artista;
 import com.example.demo.Entity.Boleta;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

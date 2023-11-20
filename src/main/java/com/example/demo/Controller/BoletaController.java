@@ -31,8 +31,8 @@ public class BoletaController {
     }
 
     @GetMapping("/buscarPorNumeroUnico")
-    public ResponseEntity<Boleta> getBoletaByNumeroUnico() {
-        Boleta boleta = boletaService.findByNumeroUnico();
+    public ResponseEntity<Boleta> getBoletaByNumeroUnico(String numeroUnico) {
+        Boleta boleta = boletaService.findByNumeroUnico(numeroUnico);
         if (boleta != null) {
             return new ResponseEntity<>(boleta, HttpStatus.OK);
         } else {

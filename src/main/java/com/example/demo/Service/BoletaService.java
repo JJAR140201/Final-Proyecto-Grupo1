@@ -6,16 +6,14 @@ import com.example.demo.IService.IBoletaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class BoletaService extends BaseService<Boleta> implements IBoletaService {
     @Autowired
     private  IBaseRepository repository;
 
     @Override
-    public Boleta findByNumeroUnico() {
-        return repository.findByNumeroUnico();
+    public Boleta findByNumeroUnico(String numeroUnico) {
+        return (Boleta) repository.findByNumeroUnico(numeroUnico);
     }
 
     @Override

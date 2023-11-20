@@ -6,5 +6,5 @@ import com.example.demo.Entity.Boleta;
 import javax.swing.*;
 
 public interface IBoletaService extends IBaseService<Boleta>{
-    Boleta findByNumeroUnico();
+    Boleta findByNumeroUnico(String numeroUnico);
 }
