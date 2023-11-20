@@ -11,13 +11,14 @@ import org.springframework.stereotype.Service;
 public class BoletaService extends BaseService<Boleta> implements IBoletaService {
     @Autowired
     private IBoletaRepository repository;
-    @Override
-    public Boleta findByNumeroUnico(String numeroUnico) {
-        return repository.findByNumeroUnico(numeroUnico);
-    }
 
     @Override
     protected IBaseRepository<Boleta, Long> getRepository() {
         return repository;
+    }
+
+    @Override
+    public Boleta findByNumeroUnico(String numeroUnico) {
+        return repository.findByNumeroUnico(numeroUnico);
     }
 }
