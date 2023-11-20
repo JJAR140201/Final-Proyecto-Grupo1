@@ -17,8 +17,8 @@ public class RespuestaService extends BaseService<Respuesta> implements IRespues
     private IRespuestaRepository repository;
 
     @Override
-    public List<Respuesta> findByRespuesta() {
-        return repository.findByRespuesta();
+    public List<Respuesta> findByTipoRespuesta(String tipoRespuesta) {
+        return repository.findByTipoRespuesta(tipoRespuesta);
     }
 
     @Override

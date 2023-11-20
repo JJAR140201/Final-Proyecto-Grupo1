@@ -13,26 +13,26 @@ public class RespuestaController {
     @Autowired
     private IRespuestaService respuestaService;
 
-    @GetMapping
+    @GetMapping("/getAllRespuestas")
     public ResponseEntity<List<Respuesta>> getAllRespuestas() {
         List<Respuesta> respuestas = respuestaService.all();
         return new ResponseEntity<>(respuestas, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getRespuestaById/{id}")
     public ResponseEntity<Respuesta> getRespuestaById(@PathVariable Long id) {
         Optional<Respuesta> respuesta = respuestaService.findById(id);
         return respuesta.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/buscarPorRespuesta")
-    public ResponseEntity<List<Respuesta>> getRespuestasByRespuesta() {
-        List<Respuesta> respuestas = respuestaService.findByRespuesta();
+    @GetMapping("/findByTipoRespuesta")
+    public ResponseEntity<List<Respuesta>> findByTipoRespuesta(String tipoRespuesta) {
+        List<Respuesta> respuestas = respuestaService.findByTipoRespuesta(tipoRespuesta);
         return new ResponseEntity<>(respuestas, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/createRespuesta")
     public ResponseEntity<Respuesta> createRespuesta(@RequestBody Respuesta respuesta) {
         try {
             Respuesta createdRespuesta = respuestaService.save(respuesta);
@@ -42,7 +42,7 @@ public class RespuestaController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateRespuesta/{id}")
     public ResponseEntity<Respuesta> updateRespuesta(@PathVariable Long id, @RequestBody Respuesta respuesta) {
         try {
             respuestaService.update(id, respuesta);
@@ -52,7 +52,7 @@ public class RespuestaController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteRespuesta/{id}")
     public ResponseEntity<Void> deleteRespuesta(@PathVariable Long id) {
         try {
             respuestaService.delete(id);

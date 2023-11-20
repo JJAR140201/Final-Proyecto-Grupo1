@@ -6,5 +6,5 @@ import com.example.demo.Entity.Respuesta;
 import java.util.List;
 
 public interface IRespuestaService extends IBaseService<Respuesta>{
-    List<Respuesta> findByRespuesta();
+    List<Respuesta> findByTipoRespuesta(String tipoRespuesta);
 }
