@@ -15,13 +15,13 @@ public class ParticipanteController {
     @Autowired
     private IParticipanteService participanteService;
 
-    @GetMapping
+    @GetMapping("/getAllParticipantes")
     public ResponseEntity<List<Participante>> getAllParticipantes() {
         List<Participante> participantes = participanteService.all();
         return new ResponseEntity<>(participantes, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getParticipanteById/{id}")
     public ResponseEntity<Participante> getParticipanteById(@PathVariable Long id) {
         Optional<Participante> participante = participanteService.findById(id);
         return participante.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -34,7 +34,7 @@ public class ParticipanteController {
         return new ResponseEntity<>(participantes, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/createParticipante")
     public ResponseEntity<Participante> createParticipante(@RequestBody Participante participante) {
         try {
             Participante createdParticipante = participanteService.save(participante);
@@ -44,7 +44,7 @@ public class ParticipanteController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateParticipante/{id}")
     public ResponseEntity<Participante> updateParticipante(@PathVariable Long id, @RequestBody Participante participante) {
         try {
             participanteService.update(id, participante);
@@ -54,7 +54,7 @@ public class ParticipanteController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteParticipante/{id}")
     public ResponseEntity<Void> deleteParticipante(@PathVariable Long id) {
         try {
             participanteService.delete(id);
