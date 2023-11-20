@@ -33,9 +33,9 @@ public class ArtistaController {
     }
 
     @GetMapping("/getCancionesByArtistaNombre")
-    public ResponseEntity<List<Cancion>> getCancionesByArtistaNombre() {
-        List<Cancion> canciones = artistaService.findByArtistaNombre();
-        return new ResponseEntity<>(canciones, HttpStatus.OK);
+    public ResponseEntity<List<Artista>> getCancionesByArtistaNombre() {
+        List<Artista> artistas = artistaService.findByArtistaNombre();
+        return new ResponseEntity<>(artistas, HttpStatus.OK);
     }
 
     @PostMapping("/createArtista")

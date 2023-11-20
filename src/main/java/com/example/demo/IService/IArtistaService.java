@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IArtistaService extends IBaseService<Artista> {
-    List<Cancion> findByArtistaNombre();
+    List<Artista> findByArtistaNombre();
     boolean existsById(Long id);
 }

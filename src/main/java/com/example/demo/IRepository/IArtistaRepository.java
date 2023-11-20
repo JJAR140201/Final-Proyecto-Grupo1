@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface IArtistaRepository extends IBaseRepository<Artista, Long> {
 
-    List<Cancion> findByArtistaNombre();
+    List<Artista> findByArtistaNombre();
 
     // Consulta para obtener un artista por ID
     @Query("SELECT a FROM Artista a WHERE a.id = :id")
