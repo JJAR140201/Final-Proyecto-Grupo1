@@ -15,13 +15,13 @@ public class EncuestaController {
     @Autowired
     private IEncuestaService encuestaService;
 
-    @GetMapping
+    @GetMapping("/getAllEncuestas")
     public ResponseEntity<List<Encuesta>> getAllEncuestas() {
         List<Encuesta> encuestas = encuestaService.all();
         return new ResponseEntity<>(encuestas, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getEncuestaById/{id}")
     public ResponseEntity<Encuesta> getEncuestaById(@PathVariable Long id) {
         Optional<Encuesta> encuesta = encuestaService.findById(id);
         return encuesta.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -34,7 +34,7 @@ public class EncuestaController {
         return new ResponseEntity<>(encuestas, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/createEncuesta")
     public ResponseEntity<Encuesta> createEncuesta(@RequestBody Encuesta encuesta) {
         try {
             Encuesta createdEncuesta = encuestaService.save(encuesta);
@@ -44,7 +44,7 @@ public class EncuestaController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateEncuesta/{id}")
     public ResponseEntity<Encuesta> updateEncuesta(@PathVariable Long id, @RequestBody Encuesta encuesta) {
         try {
             encuestaService.update(id, encuesta);
@@ -54,7 +54,7 @@ public class EncuestaController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteEncuesta/{id}")
     public ResponseEntity<Void> deleteEncuesta(@PathVariable Long id) {
         try {
             encuestaService.delete(id);
