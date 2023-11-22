@@ -17,13 +17,13 @@ public class BoletaController {
     @Autowired
     private IBoletaService boletaService;
 
-    @GetMapping
+    @GetMapping("/getAllBoletas")
     public ResponseEntity<List<Boleta>> getAllBoletas() {
         List<Boleta> boletas = boletaService.all();
         return new ResponseEntity<>(boletas, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getBoletaById/{id}")
     public ResponseEntity<Boleta> getBoletaById(@PathVariable Long id) {
         Optional<Boleta> boleta = boletaService.findById(id);
         return boleta.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -40,7 +40,7 @@ public class BoletaController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/createBoleta")
     public ResponseEntity<Boleta> createBoleta(@RequestBody Boleta boleta) {
         try {
             Boleta createdBoleta = boletaService.save(boleta);
@@ -50,7 +50,7 @@ public class BoletaController {
         }
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateBoleta/{id}")
     public ResponseEntity<Boleta> updateBoleta(@PathVariable Long id, @RequestBody Boleta boleta) {
         try {
             boletaService.update(id, boleta);
@@ -60,7 +60,7 @@ public class BoletaController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteBoleta/{id}")
     public ResponseEntity<Void> deleteBoleta(@PathVariable Long id) {
         try {
             boletaService.delete(id);
