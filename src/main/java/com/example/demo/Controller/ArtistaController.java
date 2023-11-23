@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DTO.ConsultaDTO;
 import com.example.demo.Entity.Artista;
 import com.example.demo.Entity.Boleta;
 import com.example.demo.Entity.Cancion;
@@ -36,6 +37,11 @@ public class ArtistaController {
     public ResponseEntity<List<Artista>> getCancionesByArtistaNombre(String nombreArtista) {
         List<Artista> artistas = artistaService.findByNombreArtista(nombreArtista);
         return new ResponseEntity<>(artistas, HttpStatus.OK);
+    }
+
+    @GetMapping("/consulta-global")
+    public List<ConsultaDTO> getConsultaGlobal() {
+        return artistaService.findGlobal();
     }
 
     @PostMapping("/createArtista")

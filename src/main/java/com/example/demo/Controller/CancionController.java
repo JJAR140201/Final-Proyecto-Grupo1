@@ -33,13 +33,13 @@ public class CancionController {
 
     @GetMapping("/findByNombreCancion")
     public ResponseEntity<List<Cancion>> findByNombreCancion(
-            @RequestParam String nombreCancion) {
+            @RequestParam(name = "nombreCancion", required = false) String nombreCancion) {
         List<Cancion> cancions = cancionService.findByNombreCancion(nombreCancion);
         return new ResponseEntity<>(cancions, HttpStatus.OK);
     }
 
     @GetMapping("/findByGeneroCancion")
-    public ResponseEntity<List<Cancion>> findByGeneroCancion(@PathVariable String generoCancion){
+    public ResponseEntity<List<Cancion>> findByGeneroCancion(@RequestParam(name = "generoCancion", required = false) String generoCancion){
         List<Cancion> cancions = cancionService.findByGeneroCancion(generoCancion);
         return new ResponseEntity<>(cancions, HttpStatus.OK);
     }

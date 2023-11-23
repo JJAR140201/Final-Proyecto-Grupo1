@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.DTO.ConsultaDTO;
 import com.example.demo.Entity.Artista;
 import com.example.demo.Entity.Boleta;
 import com.example.demo.Entity.Cancion;
@@ -30,6 +31,11 @@ public class ArtistaService extends BaseService<Artista> implements IArtistaServ
     @Override
     public boolean existsById(Long id) {
         return repository.existsById(id);
+    }
+
+    @Override
+    public List<ConsultaDTO> findGlobal() {
+        return repository.findGlobal();
     }
 
 
