@@ -22,13 +22,13 @@ public abstract class Audit {
     private LocalDateTime updatedAt;
 
     @Column(name="created_user", nullable = true)
-    private Long createdUser;
+    private String createdUser;
 
     @Column(name="updated_user", nullable = true)
-    private Long updatedUser;
+    private String updatedUser;
 
     @Column(name="deted_user", nullable = true)
-    private Long deletedUser;
+    private String deletedUser;
 
     @Column(name = "deleted_at", nullable = true)
     private LocalDateTime deletedAt;
