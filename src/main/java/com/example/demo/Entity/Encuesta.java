@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -58,6 +59,7 @@ public class Encuesta extends Audit{
         this.participantes = participantes;
     }
 
+    @JsonBackReference
     @OneToMany(mappedBy = "encuesta", cascade = CascadeType.ALL)
     private List<Participante> participantes;
 }

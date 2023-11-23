@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -67,10 +68,12 @@ public class Cancion extends Audit{
         this.respuestas = respuestas;
     }
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "artista_id")
     private Artista artista;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "cancion", cascade = CascadeType.ALL)
     private List<Respuesta> respuestas;
 }
