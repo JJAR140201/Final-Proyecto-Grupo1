@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ICancionRepository extends IBaseRepository<Cancion, Long> {
     // Consulta para buscar por nombreCancion
-    @Query("SELECT c FROM Cancion c WHERE c.nombreCancion = :nombreCancion")
+    @Query("SELECT nombreCancion FROM cancion")
     List<Cancion> findByNombreCancion(@Param("nombreCancion") String nombreCancion);
 
     // Consulta para buscar por generoCancion
