@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "cancion")
 public class Cancion extends Audit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

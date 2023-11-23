@@ -14,7 +14,7 @@ public interface ICancionRepository extends IBaseRepository<Cancion, Long> {
     List<Cancion> findByNombreCancion(@Param("nombreCancion") String nombreCancion);
 
     // Consulta para buscar por generoCancion
-    @Query("SELECT c FROM Cancion c WHERE c.generoCancion = :generoCancion")
+    @Query("SELECT generoCancion FROM cancion")
     List<Cancion> findByGeneroCancion(@Param("generoCancion") String generoCancion);
 
 }

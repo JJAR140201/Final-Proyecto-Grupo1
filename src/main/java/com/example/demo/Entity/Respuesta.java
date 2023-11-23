@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "respuesta")
 public class Respuesta extends Audit{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

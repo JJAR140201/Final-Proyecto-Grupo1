@@ -39,7 +39,7 @@ public class CancionController {
     }
 
     @GetMapping("/findByGeneroCancion")
-    public ResponseEntity<List<Cancion>> findByGeneroCancion(@RequestParam String generoCancion){
+    public ResponseEntity<List<Cancion>> findByGeneroCancion(@PathVariable String generoCancion){
         List<Cancion> cancions = cancionService.findByGeneroCancion(generoCancion);
         return new ResponseEntity<>(cancions, HttpStatus.OK);
     }
